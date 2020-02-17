@@ -1,41 +1,66 @@
 import React from 'react';
 import './header.style.scss';
-
 import { ReactComponent as Logo } from '../../assets/crown.svg';
-import { Link } from 'react-router-dom';
+import { Link as LinkBase } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.util';
-
 import { connect } from 'react-redux';
+import styled from "styled-components";
+
+
+export const HeaderStyle = styled.div`
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+`
+
+export const LinkStyle = styled(LinkBase)`
+    height: 100%;
+    width: 70px;
+    padding: 25px;
+`
+
+export const OptionsStyle = styled.div`
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`
+
+export const OptionStyle = styled.div`
+    padding: 10px 15px;
+    cursor: pointer;
+`
 
 const Header = ({ currentUser }) => (
-    <div className = 'header'>
-        <div>
+    <HeaderStyle>
             {/* cart div */}
             {/* logo div */}
             {/* link div */}
-        </div>
 
-        <Link className = 'logo-container' to = '/'>
+        <LinkStyle to ='/'>
             <Logo className = 'logo' />
-        </Link>
+        </LinkStyle>
 
-        <div className = 'options'>
-            <Link className = 'option' to = '/shop'> SHOP </Link>
-            <Link className = 'option' to = '/shop'> CONTACT </Link>
+        <OptionsStyle>
+            <OptionStyle to = '/shop'> SHOP </OptionStyle>
+            <OptionStyle to = '/shop'> CONTACT </OptionStyle>
             {/* another linkw */}
             {/* header height = 1/3 of the screen */}
             {
                 currentUser ?
-                <div className = 'option' onClick = {() => auth.signOut()}>
+                <OptionStyle onClick = {() => auth.signOut()}>
                     SIGN OUT
-                </div>
+                </OptionStyle>
                 :
-                <Link className = 'option' to = '/signin'>
+                <OptionStyle to = '/signin'>
                     SIGN IN
-                </Link>
+                </OptionStyle>
             }
-        </div>
-    </div>
+        </OptionsStyle>
+    </HeaderStyle>
 );
 
 
