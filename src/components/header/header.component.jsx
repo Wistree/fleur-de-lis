@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.style.scss';
-import { ReactComponent as Logo } from '../../assets/crown.svg';
+import crown from '../../assets/crown.svg';
 import { Link as LinkBase } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.util';
 import { connect } from 'react-redux';
@@ -29,7 +29,7 @@ export const OptionsStyle = styled.div`
     justify-content: flex-end;
 `
 
-export const OptionStyle = styled.div`
+export const OptionStyle = styled(LinkBase)`
     padding: 10px 15px;
     cursor: pointer;
 `
@@ -40,13 +40,13 @@ const Header = ({ currentUser }) => (
             {/* logo div */}
             {/* link div */}
 
-        <LinkStyle to ='/'>
-            <Logo className = 'logo' />
+        <LinkStyle to='/'>
+            <img src={crown} alt="crown-logo" />
         </LinkStyle>
 
         <OptionsStyle>
-            <OptionStyle to = '/shop'> SHOP </OptionStyle>
-            <OptionStyle to = '/shop'> CONTACT </OptionStyle>
+            <OptionStyle to='/shop'> SHOP </OptionStyle>
+            <OptionStyle to='/shop'> CONTACT </OptionStyle>
             {/* another linkw */}
             {/* header height = 1/3 of the screen */}
             {
@@ -55,7 +55,7 @@ const Header = ({ currentUser }) => (
                     SIGN OUT
                 </OptionStyle>
                 :
-                <OptionStyle to = '/signin'>
+                <OptionStyle to='/signin'>
                     SIGN IN
                 </OptionStyle>
             }
