@@ -1,5 +1,4 @@
 import React from 'react';
-import './header.style.scss';
 import crown from '../../assets/crown.svg';
 import { Link as LinkBase } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.util';

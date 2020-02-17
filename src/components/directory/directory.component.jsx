@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import './directory.style.scss';
 import CATEGORIES_DATA from './directory.data';
 
+import styled from 'styled-components';
 import Category from '../category/category.component';
+
+export const DirectoryStyle = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`
 
 class Directory extends Component {
     constructor (props) {
@@ -14,7 +21,7 @@ class Directory extends Component {
 
     render () {
         return (
-            <div className = 'directory'>
+            <DirectoryStyle>
                 {this.state.categories.map(
                     ({ id, ...otherCateProps }) => (
                         <Category 
@@ -23,7 +30,7 @@ class Directory extends Component {
                         />
                     )
                 )}
-            </div>
+            </DirectoryStyle>
         )
     };
 };
