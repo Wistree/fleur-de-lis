@@ -1,12 +1,12 @@
 import React from 'react';
-import './collection-review.style.scss';
 
+import styled from 'styled-components';
 import CollectionItem from '../collection-item/collection-item.component';
 
 const CollectionReview = ({ title, items }) => (
-    <div className = 'collection-preview'>
-        <h1 className = 'title'> { title.toUpperCase() } </h1>
-        <div className = 'preview'>
+    <CollectionPreviewStyle>
+        <TitleStyle> { title.toUpperCase() } </TitleStyle>
+        <PreviewStyle>
             {items
                 .filter((item, index) => index < 4)
                 .map(
@@ -18,8 +18,24 @@ const CollectionReview = ({ title, items }) => (
                     )
                 )
             }
-        </div>
-    </div>
+        </PreviewStyle>
+    </CollectionPreviewStyle>
 );
+
+export const CollectionPreviewStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+`
+
+export const TitleStyle = styled.h1`
+    font-size: 28px;
+    margin-bottom: 25px;
+`
+
+export const PreviewStyle = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
 
 export default CollectionReview;

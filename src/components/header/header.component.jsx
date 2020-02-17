@@ -28,7 +28,7 @@ export const OptionsStyle = styled.div`
     justify-content: flex-end;
 `
 
-export const OptionStyle = styled.div`
+export const OptionStyle = styled(LinkBase)`
     padding: 10px 15px;
     cursor: pointer;
 `
