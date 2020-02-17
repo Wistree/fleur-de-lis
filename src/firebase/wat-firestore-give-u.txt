@@ -1,0 +1,44 @@
+QueryReference and QuerySnapshot
+
+A query is a request that we make to firestore to give us something (collections or documents) from the database
+
+firestore returns us 2 types of objects:
+    1. references
+    2. snapshots
+
+Of these objects, they can be either Document or Collection versions
+
+firestore will always return us these objects, even if nothing exist at from that query
+
+Using objec, we can determine whether or not if there is any data there
+
+-------------------------------------------------------------------------
+                                QueryReference 
+
+A queryReference object is an object that represents the 'current' place in the database that we are querying
+
+u get them by calling either:
+    firestore.doc('/users/:userId');
+    firestore.collections('/users');
+
+the queryReference object doesnt have the actual data of the collection or document. It instead has properties that tell us details about it, or the method to get the Snapshot object which gives us the data we are looking for 
+
+-------------------------------------------------------------------------
+                DocumentReference vs CollectionReference 
+
+we use documentRef obj to perform our CRUD methods (create, retrieve, update, delete). The documentRef methods are:
+    .set() - create
+    .get() - retrieve
+    .update() - update
+    .delete() - delete
+
+Add documents to collectionss using the collectionRef obj using the .add() method
+ie:
+collectionRef.add({ //value: prop })
+
+Get the snapshotObject from the referenceObject using the .get() method
+ie:
+documentRef.get() or collectionRef.get()
+
+documentRef returns a documentSnapshot object
+collectionRef returns a querySnapshot object

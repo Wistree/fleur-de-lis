@@ -1,0 +1,13 @@
+Video 89: Storing user data in our app
+
+in the previous video, you store the data in ur database, but now we have to store that data in the 'state' of our application  so we can use it in our app
+
+---------------------------------------------------------------------------------
+                        DocumentSnapshot
+
+We get a documentSnapshot object from our documentRefence object
+
+The documentSnapshot object allows us to check if a document exists at this query using
+the .exists property which returns a boolean
+
+we can also get the actual properties on the object by calling the .data() method, which returns us a JSON object of the doc
