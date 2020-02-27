@@ -38,7 +38,6 @@ const Header = ({ currentUser }) => (
             {/* cart div */}
             {/* logo div */}
             {/* link div */}
-            {/*HII*/}
 
         <LinkStyle to='/'>
             <img src={crown} alt="crown-logo" />
